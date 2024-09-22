@@ -12,3 +12,5 @@ POST /usuario -> Cria um novo usuário, o body dessa rota é
     "nome": "Nome da pessoa",
     "cpf":  "1234"
 }
+
+A aplicação não aceita a inclusão de pessoas com CPFs repetidos.
