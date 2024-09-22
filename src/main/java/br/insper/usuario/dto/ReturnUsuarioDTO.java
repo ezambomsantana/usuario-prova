@@ -7,13 +7,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReturnUsuarioDTO {
+    private String nome;
     private String cpf;
-    private String role;
 
     public static ReturnUsuarioDTO convert(Usuario usuario) {
         ReturnUsuarioDTO dto = new ReturnUsuarioDTO();
         dto.setCpf(usuario.getCpf());
-        dto.setRole(usuario.getRole());
+        dto.setNome(usuario.getNome());
         return dto;
     }
 }

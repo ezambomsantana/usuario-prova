@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateUsuarioDTO {
+    private String nome;
     private String cpf;
-    private String role;
 }

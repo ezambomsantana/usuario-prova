@@ -18,7 +18,7 @@ public class UsuarioService {
     public ReturnUsuarioDTO createUser(CreateUsuarioDTO dto) {
         Usuario usuario = new Usuario();
         usuario.setCpf(dto.getCpf());
-        usuario.setRole(dto.getRole());
+        usuario.setNome(dto.getNome());
 
         return ReturnUsuarioDTO.convert(usuarioRepository.save(usuario));
     }
