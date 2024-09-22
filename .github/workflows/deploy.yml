@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ezambomsantana/campeonato-ci:${{ github.sha }}
+          tags: ezambomsantana/usuario-prova:${{ github.sha }}
 
 
       - name: executing remote ssh commands using password
