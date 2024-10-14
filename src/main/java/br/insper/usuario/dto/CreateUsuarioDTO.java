@@ -11,4 +11,8 @@ public class CreateUsuarioDTO {
     private String nome;
     @NotEmpty
     private String cpf;
+    @NotEmpty
+    private String email;
+    @NotEmpty
+    private String password;
 }

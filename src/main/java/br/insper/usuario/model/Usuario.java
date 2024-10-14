@@ -1,18 +1,19 @@
 package br.insper.usuario.model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 @Getter
 @Setter
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String nome;
-    @Column(unique = true)
     private String cpf;
+    private String email;
+    private String password;
 }
