@@ -6,15 +6,26 @@ import br.insper.usuario.model.Usuario;
 import br.insper.usuario.repository.UsuarioRepository;
 import br.insper.usuario.utils.PasswordUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+
+    private final HashMap<String, ReturnUsuarioDTO> cache =
+            new HashMap<>();
+
+    public boolean verifyToken(String token) {
+        return cache.containsKey(token);
+    }
 
     public ReturnUsuarioDTO createUser(CreateUsuarioDTO dto) {
         Usuario usuario = new Usuario();
@@ -40,4 +51,15 @@ public class UsuarioService {
         return ReturnUsuarioDTO.convert(usuario);
     }
 
+    public String login(CreateUsuarioDTO dto) {
+
+        Usuario usuario = usuarioRepository
+                .findByEmailAndPassword(dto.getEmail(), PasswordUtils.md5Hash(dto.getPassword()))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED));
+        String token = UUID.randomUUID().toString();
+
+        cache.put(token, ReturnUsuarioDTO.convert(usuario));
+        return token;
+
+    }
 }

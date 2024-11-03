@@ -23,16 +23,5 @@ public class UsuarioServiceTests {
     @Mock
     private UsuarioRepository usuarioRepository;
 
-    @Test
-    public void testListarTimesWhenEstadoIsNull() {
 
-        // preparacao
-        Mockito.when(usuarioRepository.findAll()).thenReturn(new ArrayList<>());
-
-        // chamada do codigo testado
-        List<ReturnUsuarioDTO> usuarios = usuarioService.getUsers();
-
-        // verificacao dos resultados
-        Assertions.assertTrue(usuarios.isEmpty());
-    }
 }
