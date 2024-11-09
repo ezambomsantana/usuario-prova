@@ -1,6 +1,7 @@
 package br.insper.usuario.controller;
 
 import br.insper.usuario.dto.CreateUsuarioDTO;
+import br.insper.usuario.dto.LoginDTO;
 import br.insper.usuario.dto.ReturnUsuarioDTO;
 import br.insper.usuario.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody CreateUsuarioDTO dto) {
+    public String login(@RequestBody LoginDTO dto) {
         return usuarioService.login(dto);
     }
 

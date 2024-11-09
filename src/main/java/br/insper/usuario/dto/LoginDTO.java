@@ -6,15 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateUsuarioDTO {
-    @NotEmpty
-    private String nome;
-    @NotEmpty
-    private String cpf;
+public class LoginDTO {
     @NotEmpty
     private String email;
     @NotEmpty
     private String password;
-    @NotEmpty
-    private String role;
 }

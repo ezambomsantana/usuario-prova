@@ -1,6 +1,7 @@
 package br.insper.usuario.service;
 
 import br.insper.usuario.dto.CreateUsuarioDTO;
+import br.insper.usuario.dto.LoginDTO;
 import br.insper.usuario.dto.ReturnUsuarioDTO;
 import br.insper.usuario.model.Usuario;
 import br.insper.usuario.repository.UsuarioRepository;
@@ -33,6 +34,7 @@ public class UsuarioService {
         usuario.setNome(dto.getNome());
         usuario.setPassword(PasswordUtils.md5Hash(dto.getPassword()));
         usuario.setEmail(dto.getEmail());
+        usuario.setRole(dto.getRole());
 
         return ReturnUsuarioDTO.convert(usuarioRepository.save(usuario));
     }
@@ -51,7 +53,7 @@ public class UsuarioService {
         return ReturnUsuarioDTO.convert(usuario);
     }
 
-    public String login(CreateUsuarioDTO dto) {
+    public String login(LoginDTO dto) {
 
         Usuario usuario = usuarioRepository
                 .findByEmailAndPassword(dto.getEmail(), PasswordUtils.md5Hash(dto.getPassword()))

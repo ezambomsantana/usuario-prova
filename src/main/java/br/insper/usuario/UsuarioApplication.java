@@ -26,6 +26,7 @@ public class UsuarioApplication {
 			usuario.setCpf("123");
 			usuario.setPassword("teste");
 			usuario.setEmail("teste@teste.com");
+			usuario.setRole("ADMIN");
 
 			usuarioService.createUser(usuario);
 
@@ -34,6 +35,7 @@ public class UsuarioApplication {
 			usuario2.setCpf("123");
 			usuario2.setPassword("teste2");
 			usuario2.setEmail("teste2@teste.com");
+			usuario2.setRole("DEVELOPER");
 
 			usuarioService.createUser(usuario2);
 		};

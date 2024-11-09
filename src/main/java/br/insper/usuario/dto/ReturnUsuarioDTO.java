@@ -12,6 +12,7 @@ public class ReturnUsuarioDTO {
     private String cpf;
     private String email;
     private String password;
+    private String role;
 
     public static ReturnUsuarioDTO convert(Usuario usuario) {
         ReturnUsuarioDTO dto = new ReturnUsuarioDTO();
@@ -19,6 +20,7 @@ public class ReturnUsuarioDTO {
         dto.setNome(usuario.getNome());
         dto.setEmail(usuario.getEmail());
         dto.setPassword(usuario.getPassword());
+        dto.setRole(usuario.getRole());
         return dto;
     }
 }
