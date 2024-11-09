@@ -1,5 +1,15 @@
 # usuario-prova
 
+A aplicação possui dois usuários cadastrados já, que são:
+
+e-mail: teste@teste.com
+password: teste
+
+e-mail: teste2@teste.com
+password: teste2
+
+A rota de login é
+
 A aplicação possui três rotas:
 
 GET /usuario -> lista todos os usuáris
