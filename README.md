@@ -8,19 +8,25 @@ password: teste
 e-mail: teste2@teste.com
 password: teste2
 
-A rota de login é
+## login
 
-A aplicação possui três rotas:
+A rota de login pode ser acessada em:
 
-GET /usuario -> lista todos os usuáris
+http://184.72.80.215/usuario/login
 
-GET /usuario/{cpf} -> recupera um usuári pelo seu CPF
+o body é
 
-POST /usuario -> Cria um novo usuário, o body dessa rota é
-
+``` json
 {
-    "nome": "Nome da pessoa",
-    "cpf":  "1234"
+    "email": "teste@teste.com",
+    "password": "teste"
 }
+```
 
-A aplicação não aceita a inclusão de pessoas com CPFs repetidos.
+## validação do token
+
+A rota de validação do token pode ser acessada em:
+
+http://184.72.80.215/usuario/validate
+
+o token deve ser passado no header Authorization.
