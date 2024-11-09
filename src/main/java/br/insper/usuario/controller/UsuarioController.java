@@ -36,4 +36,9 @@ public class UsuarioController {
         return usuarioService.login(dto);
     }
 
+    @GetMapping("/validate")
+    public ReturnUsuarioDTO validateUser(@RequestHeader(name = "Authorization") String authorization) {
+        return usuarioService.getUserByToken(authorization);
+    }
+
 }

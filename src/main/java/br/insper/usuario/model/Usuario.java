@@ -18,6 +18,6 @@ public class Usuario {
     private String nome;
     private String cpf;
     private String email;
-    private String role;
+    private String papel;
     private String password;
 }

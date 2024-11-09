@@ -34,7 +34,7 @@ public class UsuarioService {
         usuario.setNome(dto.getNome());
         usuario.setPassword(PasswordUtils.md5Hash(dto.getPassword()));
         usuario.setEmail(dto.getEmail());
-        usuario.setRole(dto.getRole());
+        usuario.setPapel(dto.getRole());
 
         return ReturnUsuarioDTO.convert(usuarioRepository.save(usuario));
     }
@@ -63,5 +63,13 @@ public class UsuarioService {
         cache.put(token, ReturnUsuarioDTO.convert(usuario));
         return token;
 
+    }
+
+    public ReturnUsuarioDTO getUserByToken(String authorization) {
+        ReturnUsuarioDTO user = cache.get(authorization);
+        if (user == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return user;
     }
 }
