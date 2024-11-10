@@ -14,7 +14,7 @@ A rota de login pode ser acessada em:
 
 http://184.72.80.215/usuario/login
 
-o body é
+o body que deve ser passado nessa rota é:
 
 ``` json
 {
@@ -30,3 +30,11 @@ A rota de validação do token pode ser acessada em:
 http://184.72.80.215/usuario/validate
 
 o token deve ser passado no header Authorization.
+
+## outras rotas
+
+Existe uma rota para listar todos os usários, o endereço é:
+
+http://184.72.80.215/usuario
+
+Nela o token também deve ser passado no header Authorization.
