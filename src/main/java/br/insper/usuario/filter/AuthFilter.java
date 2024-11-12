@@ -24,7 +24,9 @@ public class AuthFilter implements Filter {
 
         String token = request.getHeader("Authorization");
 
-        if (request.getServletPath().equals("/usuario/login")) {
+        if (request.getServletPath().equals("/usuario") && request.getMethod().equals("GET")) {
+            filterChain.doFilter(servletRequest, servletResponse);
+        } else if (request.getServletPath().equals("/usuario/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else if (usuarioService.verifyToken(token)) {
             filterChain.doFilter(servletRequest, servletResponse);
